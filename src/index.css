@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@custom-variant theme-two { 
+  &:where([data-theme="two"], [data-theme="two"] *) { 
+    @slot; 
+  } 
+}
+@custom-variant theme-three { 
+  &:where([data-theme="three"], [data-theme="three"] *) { 
+    @slot; 
+  } 
+}
+
+@theme {
+  /* Theme 1 - Default */
+  --color-mainBg: hsl(222, 26%, 31%); /* main background */
+  --color-keyPadBg: hsl(223,31%,20%); /* toggle background, keypad background */
+  --color-screenBg: hsl(224, 36%, 15%); /* screen background */
+  --color-Navy-700: hsl(225, 21%, 49%); /* key background */
+  --color-Navy-800: hsl(224, 28%, 35%); /* key shadow */
+  --color-Red-600: hsl(6, 63%, 50%); /* key background, toggle */
+  --color-Red-800: hsl(6, 70%, 34%); /* key shadow */
+  --color-Gray-200: hsl(0, 0%, 90%); /* key background */
+  --color-Gray-orange-400: hsl(28, 16%, 65%); /* key shadow */
+  --color-Navy-750: hsl(221, 14%, 31%); /* text */
+  --color-White: hsl(0, 100%, 100%); /* text */
+  /* Theme 2 */
+  --color-Blue-500: hsl(185, 42%, 37%); /* key background */
+  --color-Blue-600: hsl(185, 58%, 25%); /* key shadow */
+  --color-Orange-700: hsl(25, 98%, 40%); /* key background, toggle */
+  --color-Orange-800: hsl(25, 99%, 27%); /* key shadow */
+  --color-Gray-200: hsl(0, 0%, 90%); /* key background */
+  --color-Gray-orange-450: hsl(35, 11%, 61%); /* key shadow */
+  --color-Gray-900: hsl(60, 10%, 19%); /* text */
+  --color-White: hsl(0, 100%, 100%); /* text */
+  /* Theme 3 */
+  --color-Purple-800: hsl(281, 89%, 26%); /* key background */
+  --color-Purple-400: hsl(285, 91%, 52%); /* key shadow */
+  --color-Cyan-500: hsl(176, 100%, 44%); /* key background, toggle */
+  --color-Cyan-400: hsl(177, 92%, 70%); /* key shadow */
+  --color-Purple-850: hsl(268, 47%, 21%); /* key background */
+  --color-Purple-750: hsl(290, 70%, 36%); /* key shadow */
+  --color-Yellow-300: hsl(52, 100%, 62%); /* text */
+  --color-Blue-950: hsl(198, 20%, 13%); /* text */
+  --color-White: hsl(0, 100%, 100%); /* text */
+}
+[data-theme="two"] {
+  /* Theme 2 */
+  --color-mainBg: hsl(0, 0%, 90%); /* main background */
+  --color-keyPadBg: hsl(0, 5%, 81%); /* toggle background, keypad background */
+  --color-screenBg: hsl(0, 0%, 93%); /* screen background */
+}
+[data-theme="three"] {
+  /* Theme 3 */
+  --color-mainBg: hsl(268, 75%, 9%); /* main background */
+  --color-keyPadBg: hsl(268,71%,12%); /* toggle background, keypad background */
+  --color-screenBg: hsl(268, 71%, 12%); /* screen background */
+}

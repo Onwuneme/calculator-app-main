@@ -22,20 +22,16 @@ function App() {
     setCurrent(next);
     setTheme(mode[next]);
   };
-  const maxLimit = 15;
+  
   function Result() {
     if (number.length !== 0) {
       setPrevNumber(number);
-      try {
         // Replace 'x' with '*' for calculation
         let expr = number.replace(/x/g, "*");
         let calResult = eval(expr);
         calResult = parseFloat(calResult.toFixed(3));
         setNumber(calResult.toString());
-      } catch (error) {
-        setNumber("Error");
-        console.log(error);
-      }
+
     } else {
       setNumber("");
     }
@@ -77,8 +73,6 @@ function App() {
       }
     } else if (value === "=") {
       Result();
-    } else if (number.length >= maxLimit) {
-      alert(`maximum characters allowed: ${maxLimit}`);
     } else {
       setNumber((prev) => prev + value);
     }
@@ -128,7 +122,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-mainBg">
+      <div className="bg-mainBg ">
         <div className="p-5 h-screen max-w-[500px] mx-auto ">
           <div className="text-white theme-two:text-Gray-900 theme-three:text-Yellow-300 flex justify-between items-end">
             <h1 className="font-bold text-2xl sm:text-3xl">calc</h1>
@@ -159,7 +153,7 @@ function App() {
 
           <div className="h-25 font-bold text-white theme-two:text-Gray-900 theme-three:text-Yellow-300  bg-screenBg mt-10 rounded-2xl flex flex-col items-end  px-6 ">
             <span className="h-8 ">{prevNumber}</span>
-            <span className="text-4xl sm:text-5xl text-end w-full overflow-x-auto ">
+            <span className="text-4xl sm:text-5xl text-end w-full overflow-x-hidden ">
               {number}
             </span>
           </div>

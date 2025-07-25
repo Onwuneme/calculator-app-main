@@ -51,6 +51,10 @@ function App() {
       setPrevNumber("");
     } else if (value === "del") {
       setNumber((prev) => prev.slice(0, -1));
+      if(number===""){
+        setNumber(prevNumber)
+        setPrevNumber("")
+      }
     } else if (isOperator(value)) {
       if (number === "" || isOperator(number[number.length - 1])) return;
       setNumber((prev) => prev + value);
@@ -155,7 +159,7 @@ function App() {
 
           <div className="h-25 font-bold text-white theme-two:text-Gray-900 theme-three:text-Yellow-300  bg-screenBg mt-10 rounded-2xl flex flex-col items-end  px-6 ">
             <span className="h-8 ">{prevNumber}</span>
-            <span className="text-4xl sm:text-5xl text-end w-full  ">
+            <span className="text-4xl sm:text-5xl text-end w-full overflow-x-auto ">
               {number}
             </span>
           </div>
